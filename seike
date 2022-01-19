@@ -1,0 +1,44 @@
+Sub 合計削除()
+'
+' Macro1 Macro
+
+
+Dim i
+'j最後の行
+Dim j
+j = 400
+
+For i = 2 To 4
+
+    ActiveSheet.Range("$A$1:$L$" & j).AutoFilter Field:=i, Criteria1:="合計"
+    Rows("2:240").Select
+    Selection.Delete Shift:=xlUp
+    ActiveSheet.Range("$A$1:$L$" & j).AutoFilter Field:=i
+
+Next i
+
+
+End Sub
+
+Sub 列入れ()
+'
+' Macro2 Macro
+'
+
+'
+    Columns("B:B").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+    Columns("D:D").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+        Columns("f:f").Select
+    Selection.Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+End Sub
+
+Sub 整形()
+
+ 合計削除
+ 列入れ
+
+
+
+End Sub
