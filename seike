@@ -6,12 +6,12 @@ Sub 合計削除()
 Dim i
 'j最後の行
 Dim j
-j = 400
+j = 1000
 
-For i = 2 To 4
+For i = 2 To 6
 
     ActiveSheet.Range("$A$1:$L$" & j).AutoFilter Field:=i, Criteria1:="合計"
-    Rows("2:240").Select
+    Rows("2:1000").Select
     Selection.Delete Shift:=xlUp
     ActiveSheet.Range("$A$1:$L$" & j).AutoFilter Field:=i
 
